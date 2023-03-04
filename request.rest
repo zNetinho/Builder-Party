@@ -1,0 +1,109 @@
+# Cria itens
+POST http://localhost:3000/api/services
+Content-Type: application/json
+
+{
+    "nomeDoServico": "Segundo servico",
+    "descricao": "Testando a rota",
+    "precoServico": 12334,
+    "Image": "Imagine uma imagem aqui" 
+}
+
+###
+# Busca todos serviço
+GET http://localhost:3000/api/services
+
+###
+# Busca um serviço
+GET http://localhost:3000/api/services/63fbff1d0f42351a8fba6024
+
+#Deleta serviço
+###
+DELETE http://localhost:3000/api/services/63fbeb4d99d45cf419a855c4
+
+
+###
+# Atualiza serviço
+PUT http://localhost:3000/api/services/63fbff1d0f42351a8fba6024
+Content-Type: application/json
+
+{
+    "nomeDoServico": "Atualizando servico",
+    "descricao": "Testando a rota",
+    "precoServico": 1232,
+    "Image": "Imagine uma imagem aqui" 
+}
+
+# ------------ Festa 
+
+# Cria festa
+###
+POST http://localhost:3000/api/parties
+Content-Type: application/json
+
+{
+    "title": "Primeira festa",
+    "author": "Testando a rota",
+    "descricao": "Testando a criação de festa 1 tentativa",
+    "budget": 12341,
+    "image": "Imagine uma imagem aqui",
+    "services": [
+        {
+            "nomeDoServico": "Atualizando servico",
+            "descricao": "Testando a rota",
+            "precoServico": 1232,
+            "Image": "Imagine uma imagem aqui"
+        }
+    ]
+}
+
+#Não cria festa
+###
+POST http://localhost:3000/api/parties
+Content-Type: application/json
+
+{
+    "title": "Primeira festa",
+    "author": "Testando a rota",
+    "descricao": "Testando a criação de festa 1 tentativa",
+    "budget": 12,//Valor de orçamento e menor que custo da festa.
+    "image": "Imagine uma imagem aqui",
+    "services": [
+        {
+            "nomeDoServico": "Atualizando servico",
+            "descricao": "Testando a rota",
+            "precoServico": 1232,
+            "Image": "Imagine uma imagem aqui"
+        }
+    ]
+}
+
+###
+GET http://localhost:3000/api/parties
+
+
+###
+GET http://localhost:3000/api/parties/6403b9880ad49aa64efbd841
+
+###
+DELETE http://localhost:3000/api/parties/6403ba9145b5fb21d5e4b52e
+
+###
+PUT http://localhost:3000/api/parties/64039ca23179185e681bc45b
+Content-Type: application/json
+
+{
+    "title": "Primeira Atualização festa",
+    "author": "Testando a rota",
+    "descricao": "Testando a atualização de festa 1 tentativa",
+    "budget": 123,
+    "image": "Imagine uma imagem aqui",
+    "service": [
+        {
+            "nomeDoServico": "Segundo servico",
+            "descricao": "Testando a rota",
+            "precoServico": 12334,
+            "Image": "Imagine uma imagem aqui" 
+        }    
+    ]
+}
